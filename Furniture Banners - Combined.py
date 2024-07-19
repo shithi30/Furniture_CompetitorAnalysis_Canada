@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
-
-
 ## import
 from selenium import webdriver
 from bs4 import BeautifulSoup
@@ -20,10 +17,6 @@ from google.oauth2 import service_account
 import win32com.client
 import time
 
-
-# In[2]:
-
-
 ## scrape
 
 # init.
@@ -37,10 +30,6 @@ options = webdriver.ChromeOptions().add_argument("ignore-certificate-errors")
 # window
 driver = webdriver.Chrome(options = options)
 driver.maximize_window()
-
-
-# In[3]:
-
 
 ## Canadian Tire
 def scrape_cdtr():
@@ -80,10 +69,6 @@ def scrape_cdtr():
     # return
     return cdtr_df
 
-
-# In[4]:
-
-
 ## Costco
 def scrape_cost():
 
@@ -121,10 +106,6 @@ def scrape_cost():
     # return
     return cost_df
 
-
-# In[5]:
-
-
 ## Wayfair
 def scrape_wafr():
 
@@ -159,10 +140,6 @@ def scrape_wafr():
     
     # return
     return wafr_df
-
-
-# In[6]:
-
 
 ## SportChek
 def scrape_schk():
@@ -201,10 +178,6 @@ def scrape_schk():
     # return
     return schk_df
 
-
-# In[7]:
-
-
 ## Rona
 def scrape_rona():
 
@@ -241,10 +214,6 @@ def scrape_rona():
 
     # return
     return rona_df
-
-
-# In[8]:
-
 
 ## Lowe's
 def scrape_lows():
@@ -286,10 +255,6 @@ def scrape_lows():
 
     # retutn
     return lows_df
-
-
-# In[9]:
-
 
 ## Sleepcountry
 def scrape_sleep():
@@ -336,10 +301,6 @@ def scrape_sleep():
     # return
     return sleep_df
 
-
-# In[10]:
-
-
 ## caller
 @fuckit
 def scrape_call():
@@ -369,10 +330,6 @@ def scrape_call():
     # return
     return ecom_df
 
-
-# In[11]:
-
-
 ## services
 
 # creds
@@ -384,10 +341,6 @@ SCOPES = ["https://www.googleapis.com/auth/spreadsheets"]
 creds = service_account.Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE, scopes = SCOPES)
 service = build("sheets", "v4", credentials = creds)
 sheet = service.spreadsheets()
-
-
-# In[12]:
-
 
 ## ETL
 
@@ -411,10 +364,6 @@ pres_df = duckdb.query(qry).df()
 sheet.values().clear(spreadsheetId=SAMPLE_SPREADSHEET_ID, range= "Competitor Banners!B1:F").execute()
 sheet.values().update(spreadsheetId=SAMPLE_SPREADSHEET_ID, range = "Competitor Banners!B1", valueInputOption = "USER_ENTERED", body = {"values": [pres_df.columns.values.tolist()] + pres_df.fillna("").values.tolist()}).execute()
 
-
-# In[13]:
-
-
 ## new
 
 # new banners
@@ -437,10 +386,6 @@ for i in range(0, len_links):
     except: # svg
         img_data = requests.get(img_link).text
         with open(path + "new_" + str(i+1) + "_" + new_pltfm[i] + ".svg", "w") as file: file.write(img_data)
-
-
-# In[14]:
-
 
 ## email
 
@@ -478,15 +423,9 @@ for f in files: ret = newmail.Attachments.Add(f) if len_links > 0 else None
 newmail.To = "shithi30@outlook.com"
 newmail.Send()
 
-
-# In[15]:
-
-
 ## end
 driver.close()
 
-
-# In[ ]:
 
 
 
