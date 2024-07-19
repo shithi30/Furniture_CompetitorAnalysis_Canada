@@ -1,3 +1,5 @@
+This repository enlists my complete works on analyzing Canada's competitive furniture eCommerce market. 
+
 ### Similarweb Traffic - Competitive Analysis
 <p align="center">
   <img width="935" alt="c5" src="https://github.com/user-attachments/assets/c1c62d87-71dd-4176-bbf6-6c4bc43e7ca0"><br>
