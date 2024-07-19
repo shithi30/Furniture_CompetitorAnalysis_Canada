@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
-
-
 # import
 from selenium import webdriver
 from bs4 import BeautifulSoup
@@ -15,10 +12,6 @@ import win32com.client
 from pretty_html_table import build_table
 import time
 from datetime import datetime
-
-
-# In[2]:
-
 
 ## Similarweb ##
 
@@ -185,21 +178,9 @@ def put_to_sheet(data_df, summary_df):
     res = sheet.values().update(spreadsheetId=SAMPLE_SPREADSHEET_ID, range="'Furniture'!A1", valueInputOption='USER_ENTERED', body={'values': [df_now.columns.values.tolist()] + df_now.values.tolist()}).execute()
     res = sheet.values().update(spreadsheetId=SAMPLE_SPREADSHEET_ID, range="'Furniture'!H1", valueInputOption='USER_ENTERED', body={'values': [df_sum_now.columns.values.tolist()] + df_sum_now.values.tolist()}).execute()
 
-
-# In[3]:
-
-
 df = scrape_similarweb(['teppermans.com', 'leons.ca', 'thebrick.com', 'ikea.com', 'sleepcountry.ca', 'hudsonsbay.com', 'wayfair.ca', 'structube.com', 'ashleyhomestore.ca', 'tjfurniture.ca', 'bedroomdepot.ca', 'canadiantire.ca'])
 display(df)
 
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
 
 
 
