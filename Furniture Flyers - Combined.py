@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
-
-
 ## import
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -19,10 +16,6 @@ import win32com.client
 from googleapiclient.discovery import build
 from google.oauth2 import service_account
 
-
-# In[2]:
-
-
 ## scrape
 
 # init.
@@ -37,10 +30,6 @@ driver.maximize_window()
 driver.implicitly_wait(30)
 warnings.filterwarnings("ignore")
 pd.set_option("display.max_rows", 3000)
-
-
-# In[3]:
-
 
 ## parse
 def parse_flyer(site, offers, url):
@@ -101,10 +90,6 @@ def parse_flyer(site, offers, url):
     # show
     return flyer_df
 
-
-# In[4]:
-
-
 ## Leon's
 def scrape_leons():
 
@@ -141,10 +126,6 @@ def scrape_leons():
     # return
     return parse_flyer("Leon's", offers, url)
 
-
-# In[5]:
-
-
 ## The Brick
 def scrape_thebrick():
     
@@ -166,10 +147,6 @@ def scrape_thebrick():
             
     # return
     return parse_flyer("The Brick", offers, url)
-
-
-# In[6]:
-
 
 ## Tepperman's
 def scrape_teppermans():
@@ -197,10 +174,6 @@ def scrape_teppermans():
 
     # return
     return parse_flyer("Tepperman's", offers, url)
-
-
-# In[7]:
-
 
 ## Walmart
 def scrape_walmart():
@@ -243,10 +216,6 @@ def scrape_walmart():
     flyer_df["instalment_mth"] = None
     return flyer_df
 
-
-# In[8]:
-
-
 ## caller
 @fuckit
 def scrape_call():
@@ -273,10 +242,6 @@ def scrape_call():
     # return
     return flyer_df
 
-
-# In[9]:
-
-
 ## services
 
 # creds
@@ -289,16 +254,8 @@ creds = service_account.Credentials.from_service_account_file(SERVICE_ACCOUNT_FI
 service = build("sheets", "v4", credentials = creds)
 sheet = service.spreadsheets()
 
-
-# In[10]:
-
-
 ## ETL extract
 extract_df = scrape_call()
-
-
-# In[11]:
-
 
 ## ETL transform - categorize
 
@@ -327,16 +284,8 @@ for index, row in iterator:
 # assign
 extract_df["flyer_cat"] = flyer_cat
 
-
-# In[12]:
-
-
 ## ETL transform - flyer
 flyer_df = duckdb.query('''select flyer_item, sku, concat('=TO_TEXT("', replace(offer, '"', '""'), '")') offer, discount, offer_price, regular_price, instalment_mth, platform, flyer_cat category, url, report_time from extract_df''').df()
-
-
-# In[13]:
-
 
 ## ETL transform - platform
 qry = '''
@@ -356,10 +305,6 @@ from extract_df
 group by 1
 '''
 sumry_df = duckdb.query(qry).df()
-
-
-# In[14]:
-
 
 # ETL transform - category
 qry = '''
@@ -382,10 +327,6 @@ group by 1
 '''
 anlys_df = duckdb.query(qry).df()
 
-
-# In[15]:
-
-
 ## ETL transform - share
 qry = '''
 pivot
@@ -398,10 +339,6 @@ on platform
 using sum(items)
 '''
 share_df = duckdb.query(qry).df()
-
-
-# In[16]:
-
 
 ## ETL transform - discount
 qry = '''
@@ -416,10 +353,6 @@ using sum("avg. discount %")
 '''
 discount_df = duckdb.query(qry).df()
 
-
-# In[17]:
-
-
 ## ETL load
 clear = sheet.values().clear(spreadsheetId=SAMPLE_SPREADSHEET_ID, range="Furniture - Flyers").execute()
 reqst = sheet.values().update(spreadsheetId=SAMPLE_SPREADSHEET_ID, range="'Furniture - Flyers'!A1", valueInputOption="USER_ENTERED", body={"values": [flyer_df.columns.values.tolist()] + flyer_df.fillna("").values.tolist()}).execute()
@@ -427,10 +360,6 @@ reqst = sheet.values().update(spreadsheetId=SAMPLE_SPREADSHEET_ID, range="'Furni
 reqst = sheet.values().update(spreadsheetId=SAMPLE_SPREADSHEET_ID, range="'Furniture - Flyers'!W1", valueInputOption="USER_ENTERED", body={"values": [anlys_df.columns.values.tolist()] + anlys_df.fillna("").values.tolist()}).execute()
 reqst = sheet.values().update(spreadsheetId=SAMPLE_SPREADSHEET_ID, range="'Furniture - Flyers'!AH1", valueInputOption="USER_ENTERED", body={"values": [share_df.columns.values.tolist()] + share_df.fillna("").values.tolist()}).execute()
 reqst = sheet.values().update(spreadsheetId=SAMPLE_SPREADSHEET_ID, range="'Furniture - Flyers'!AN1", valueInputOption="USER_ENTERED", body={"values": [discount_df.columns.values.tolist()] + discount_df.fillna("").values.tolist()}).execute()
-
-
-# In[18]:
-
 
 # ## sanity 
 # qry = '''
@@ -443,18 +372,7 @@ reqst = sheet.values().update(spreadsheetId=SAMPLE_SPREADSHEET_ID, range="'Furni
 # lst = duckdb.query(qry).df()['flyer_item'].tolist()
 # for l in lst: print(l)
 
-
-# In[19]:
-
-
 ## end
 driver.close()
 print("Listings in result: " + str(flyer_df.shape[0]))
 print("Elapsed time to report (sec): " + str(round(time.time() - start_time)))
-
-
-# In[ ]:
-
-
-
-
