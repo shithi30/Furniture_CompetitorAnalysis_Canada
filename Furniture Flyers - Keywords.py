@@ -10,7 +10,7 @@ import re
 pd.set_option('display.max_rows', 3000)
 
 # read
-read_df = pd.read_csv("C:/Users/shith/Downloads/Competitive Landscape - Tepperman's - Furniture - Flyers.csv")
+read_df = pd.read_csv("C:/Users/shith/Downloads/Competitive Landscape - Canadian Furniture Market - Furniture - Flyers.csv")
 
 # platform cloud
 def word_freq(platform):
