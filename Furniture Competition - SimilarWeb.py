@@ -1,7 +1,9 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# import
+## Similarweb ##
+
+## import
 from selenium import webdriver
 from bs4 import BeautifulSoup
 import pandas as pd
@@ -13,8 +15,7 @@ from pretty_html_table import build_table
 import time
 from datetime import datetime
 
-## Similarweb ##
-
+## datapoint
 def scrape_datapoint(attr_ls, val_ls, attr_ind, attr_div, attr_cls, val_div, val_cls, cat, soup_init, p):
     
     # accumulator
@@ -38,6 +39,7 @@ def scrape_datapoint(attr_ls, val_ls, attr_ind, attr_div, attr_cls, val_div, val
     # return
     return df_temp
 
+## crawler
 def scrape_similarweb(platforms):
 
     # accumulators
@@ -151,6 +153,7 @@ def scrape_similarweb(platforms):
     # return
     return res_df
 
+## reporting
 def put_to_sheet(data_df, summary_df):
     
     # credentials
@@ -178,6 +181,7 @@ def put_to_sheet(data_df, summary_df):
     res = sheet.values().update(spreadsheetId=SAMPLE_SPREADSHEET_ID, range="'Furniture'!A1", valueInputOption='USER_ENTERED', body={'values': [df_now.columns.values.tolist()] + df_now.values.tolist()}).execute()
     res = sheet.values().update(spreadsheetId=SAMPLE_SPREADSHEET_ID, range="'Furniture'!H1", valueInputOption='USER_ENTERED', body={'values': [df_sum_now.columns.values.tolist()] + df_sum_now.values.tolist()}).execute()
 
+## caller
 df = scrape_similarweb(['teppermans.com', 'leons.ca', 'thebrick.com', 'ikea.com', 'sleepcountry.ca', 'hudsonsbay.com', 'wayfair.ca', 'structube.com', 'ashleyhomestore.ca', 'tjfurniture.ca', 'bedroomdepot.ca', 'canadiantire.ca'])
 display(df)
 
