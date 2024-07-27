@@ -8,7 +8,7 @@ Latest data can be found [here](https://docs.google.com/spreadsheets/d/1rvnYmn4-
   <img width="755" alt="ee8" src="https://github.com/user-attachments/assets/5236db31-f627-42bd-8879-9d6b85fc0580">
 </p>
 
-### Competitive Banner Reporting 
+### Competitive Banners - Daily Reporting 
 <p align="center">
 <img width="900" alt="c4" src="https://github.com/user-attachments/assets/8338942a-752b-48cd-9e2b-a63938127444"><br>
 <img width="680" alt="c4" src="https://github.com/user-attachments/assets/53d77a5f-d535-4086-bee4-ebed73e031e8">
