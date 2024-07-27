@@ -10,7 +10,7 @@ Latest data can be found [here](https://docs.google.com/spreadsheets/d/1rvnYmn4-
 
 ### Competitive Banner Reporting 
 <p align="center">
-<img width="900" alt="c4" src="https://github.com/user-attachments/assets/e70c8591-965c-4c78-bfe3-e0974f9e8663"><br>
+<img width="900" alt="c4" src="https://github.com/user-attachments/assets/8338942a-752b-48cd-9e2b-a63938127444"><br>
 <img width="680" alt="c4" src="https://github.com/user-attachments/assets/53d77a5f-d535-4086-bee4-ebed73e031e8">
 </p>
 
