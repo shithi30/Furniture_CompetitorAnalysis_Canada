@@ -12,6 +12,37 @@ Latest data can be found [here](https://docs.google.com/spreadsheets/d/1rvnYmn4-
 <p align="center">
 <img width="900" alt="c4" src="https://github.com/user-attachments/assets/8338942a-752b-48cd-9e2b-a63938127444"><br>
 <img width="680" alt="c4" src="https://github.com/user-attachments/assets/53d77a5f-d535-4086-bee4-ebed73e031e8">
+
+### Competitive Banners - Caller Function
+```python
+@fuckit
+def scrape_call():
+
+    # call
+    ecom_df = pd.DataFrame()
+    ecom_df = pd.concat([ecom_df, scrape_cdtr()], ignore_index = True)
+    ecom_df = pd.concat([ecom_df, scrape_wafr()], ignore_index = True)
+    ecom_df = pd.concat([ecom_df, scrape_schk()], ignore_index = True)
+    ecom_df = pd.concat([ecom_df, scrape_rona()], ignore_index = True)
+    ecom_df = pd.concat([ecom_df, scrape_lows()], ignore_index = True)
+    ecom_df = pd.concat([ecom_df, scrape_cost()], ignore_index = True)
+    ecom_df = pd.concat([ecom_df,scrape_sleep()], ignore_index = True)
+
+    # error
+    to_scraped = set(["Canadian Tire", "Wayfair", "SportChek", "Rona", "Lowes", "Sleep Country", "Costco"])
+    is_scraped = set(duckdb.query('''select platform from ecom_df''').df()["platform"].tolist())
+    err_scrape = to_scraped - is_scraped
+    
+    # report
+    newmail = outlook.CreateItem(0x0)
+    newmail.Subject = "Banner Errors (" + str(len(err_scrape)) + ")"
+    newmail.HTMLbody = "Banner websites to throw error are: " + str(err_scrape)
+    newmail.To = "shithi30@outlook.com"
+    newmail.Send()
+
+    # return
+    return ecom_df
+```  
 </p>
 
 ### Flyer Analytics - Competitive Landscape
