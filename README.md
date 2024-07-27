@@ -5,7 +5,7 @@ Latest data can be found [here](https://docs.google.com/spreadsheets/d/1rvnYmn4-
 ### Similarweb Traffic - Competitive Analysis
 <p align="center">
   <img width="935" alt="c5" src="https://github.com/user-attachments/assets/c1c62d87-71dd-4176-bbf6-6c4bc43e7ca0"><br>
-  <img width="750" alt="ee8" src="https://github.com/user-attachments/assets/30471aa6-f954-4c8a-921e-d4538d22850e">
+  <img width="755" alt="ee8" src="https://github.com/user-attachments/assets/5236db31-f627-42bd-8879-9d6b85fc0580">
 </p>
 
 ### Competitive Banner Reporting 
