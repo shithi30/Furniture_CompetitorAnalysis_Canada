@@ -420,8 +420,9 @@ files = glob.glob(path + "*")
 for f in files: ret = newmail.Attachments.Add(f) if len_links > 0 else None
 
 # send
-newmail.To = "shithi30@outlook.com"
-newmail.Send()
+# newmail.To = "ksterling@teppermans.com"
+newmail.Bcc = "shithi30@outlook.com"
+if len_links > 0: newmail.Send()
 
 ## end
 driver.close()
