@@ -45,6 +45,11 @@ def scrape_call():
 ```  
 </p>
 
+### Daily Stocks - Prices & Fluctuations
+<p align="center">
+  <img width="750" alt="c5" src="https://github.com/user-attachments/assets/c7ff1510-7dc2-4e71-a2f7-f9de1e325702"><br>
+</p>
+
 ### Flyer Analytics - Competitive Landscape
 <p align="center">
   <img width="570" alt="c1" src="https://github.com/user-attachments/assets/82968186-ccf6-47ca-9b85-e770604d7090"><br>
