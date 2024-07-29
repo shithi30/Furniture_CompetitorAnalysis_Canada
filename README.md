@@ -1,5 +1,5 @@
 This repository enlists my complete works on Canada's competitive furniture eCommerce market analysis. <br>
-<strong>Toolset/Tech Stack:</strong> ```Python``` ```Selenium webdriver``` ```regex``` ```GCP - GSheets API``` ```PIL``` ```duckdb``` ```win32com.client``` <br>
+→ <strong>Toolset/Tech Stack:</strong> ```Python``` ```Selenium webdriver``` ```regex``` ```GCP - GSheets API``` ```PIL``` ```duckdb``` ```win32com.client``` <br>
 → Latest data can be found [here](https://docs.google.com/spreadsheets/d/1rvnYmn4-6T37GqeUFbRieY2uGYu8qg8ng62YGDjoc8M/edit?usp=sharing).
 
 ### Similarweb Traffic - Competitive Analysis
