@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
-
-
 ## import
 import yfinance as yf
 from datetime import datetime, timedelta
@@ -11,10 +8,6 @@ import pandas as pd
 import duckdb
 from googleapiclient.discovery import build
 from google.oauth2 import service_account
-
-
-# In[2]:
-
 
 ## data
 
@@ -52,10 +45,6 @@ from close_df
 '''
 fluct_df = duckdb.query(qry).df()
 
-
-# In[3]:
-
-
 ## ETL
 
 # creds
@@ -71,10 +60,6 @@ sheet = service.spreadsheets()
 # update 
 clear = sheet.values().clear(spreadsheetId=SAMPLE_SPREADSHEET_ID, range="Furniture - Stocks").execute()
 reqst = sheet.values().update(spreadsheetId=SAMPLE_SPREADSHEET_ID, range="'Furniture - Stocks'!A1", valueInputOption="USER_ENTERED", body={"values": [fluct_df.columns.values.tolist()] + fluct_df.fillna("").values.tolist()}).execute()
-
-
-# In[ ]:
-
 
 
 
