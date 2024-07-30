@@ -17,7 +17,7 @@ body = oos + ats + "<br>"
 
 # object
 html_msg = MIMEText(body, "html")
-html_msg['Subject'] = "Git Actions"
+html_msg['Subject'] = "Git Actions Ushop"
 html_msg['From'] = "Shithi Maitra"
 html_msg['To'] = ", ".join(recver_email)
 
