@@ -69,7 +69,7 @@ SAMPLE_SPREADSHEET_ID = "1rvnYmn4-6T37GqeUFbRieY2uGYu8qg8ng62YGDjoc8M"
 SCOPES = ["https://www.googleapis.com/auth/spreadsheets"]
 
 # APIs
-creds = service_account.Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE, scopes = SCOPES)
+creds = service_account.Credentials.from_service_account_info(SERVICE_ACCOUNT_FILE, scopes = SCOPES)
 service = build("sheets", "v4", credentials = creds)
 sheet = service.spreadsheets()
 
