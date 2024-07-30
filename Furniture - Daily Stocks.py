@@ -91,7 +91,7 @@ recivr_email = ["shithi30@outlook.com"]
 body = '''
 Dear concern,<br><br>
 Summarized below are, today's Furniture Stock Market Price fluctuations. Recent trends can be found <a href="https://docs.google.com/spreadsheets/d/1rvnYmn4-6T37GqeUFbRieY2uGYu8qg8ng62YGDjoc8M/edit?gid=217963277#gid=217963277">here</a>.
-''' + build_table(summ_df, "green_light", font_size="12px", text_align="left") + '''
+''' + build_table(summ_df, "green_light", font_size = "12px", text_align = "left") + '''
 Note, the data presented reflects statistics when <i>yfinance</i> API was called. This is an auto. email via <i>Smtplib</i>.<br><br>
 Thanks,<br>
 Shithi Maitra<br>
