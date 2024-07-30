@@ -2,7 +2,7 @@ name: Python Script Schedule Run
 
 on:
   schedule:
-    - cron: "*/10 * * * *"                                            # cron expr.
+    - cron: "*/10 * * * *"                                                                 # cron expr.
 
 jobs:
   run-script:
@@ -15,16 +15,16 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: "3.11.7"                                     # Python version
+        python-version: "3.11.7"                                                           # Python version
 
     - name: Install dependencies                         
       run: |
         python -m pip install --upgrade pip
-        pip install -r stock_price_requirements.txt                  # installation
+        pip install -r stock_price_requirements.txt                                        # installation
 
     - name: Run the Python script 
       env:
-          API_KEY: ${{ secrets.READ_WRITE_TO_GSHEET_APIS_JSON }}     # API key (.json)
+          READ_WRITE_TO_GSHEET_APIS_JSON: ${{ secrets.READ_WRITE_TO_GSHEET_APIS_JSON }}    # API key (.json)
       run: |
-        python "Furniture - Daily Stocks.py"                         # script
+        python "Furniture - Daily Stocks.py"                                               # script
 
