@@ -1,0 +1,7 @@
+yfinance
+pandas
+duckdb
+google-auth-httplib2
+google-auth-oauthlib
+googleapiclient
+pretty-html-table
