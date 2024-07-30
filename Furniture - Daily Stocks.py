@@ -7,9 +7,9 @@ from datetime import datetime, timedelta
 import pandas as pd
 import duckdb
 import os
+import json
 from googleapiclient.discovery import build
 from google.oauth2 import service_account
-import json
 import smtplib
 from email.mime.text import MIMEText
 from pretty_html_table import build_table
