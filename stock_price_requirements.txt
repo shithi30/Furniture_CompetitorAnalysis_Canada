@@ -3,5 +3,5 @@ pandas
 duckdb
 google-auth-httplib2
 google-auth-oauthlib
-googleapiclient
+google-api-python-client
 pretty-html-table
