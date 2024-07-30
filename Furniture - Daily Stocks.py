@@ -53,7 +53,7 @@ fluct_df = duckdb.query(qry).df()
 ## ETL
 
 # creds
-SERVICE_ACCOUNT_FILE = json.loads(os.getenv("API_KEY"))
+SERVICE_ACCOUNT_FILE = json.loads(os.getenv("READ_WRITE_TO_GSHEET_APIS_JSON"))
 SAMPLE_SPREADSHEET_ID = "1rvnYmn4-6T37GqeUFbRieY2uGYu8qg8ng62YGDjoc8M"
 SCOPES = ["https://www.googleapis.com/auth/spreadsheets"]
 
