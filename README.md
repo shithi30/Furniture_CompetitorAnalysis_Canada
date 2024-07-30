@@ -57,3 +57,7 @@ def scrape_call():
   <img width="670" alt="c3" src="https://github.com/user-attachments/assets/6a7283a0-a4e5-4541-b2d8-53418d33936e"><br>
   <img width="700" alt="c3" src="https://github.com/user-attachments/assets/4a232415-9858-4142-8da5-bdc28dbcff5e">
 </p>
+
+<p align="center">
+<strong>Note</strong>: All scraping activities have been performed in compliance with robots.txt regulations.
+</p>
