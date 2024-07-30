@@ -9,6 +9,7 @@ import yfinance as yf
 from datetime import datetime, timedelta
 import pandas as pd
 import duckdb
+import os
 from googleapiclient.discovery import build
 from google.oauth2 import service_account
 import smtplib
