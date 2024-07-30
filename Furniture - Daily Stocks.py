@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
-
-
 ## import
 import yfinance as yf
 from datetime import datetime, timedelta
@@ -16,10 +13,6 @@ import json
 import smtplib
 from email.mime.text import MIMEText
 from pretty_html_table import build_table
-
-
-# In[2]:
-
 
 ## data
 
@@ -57,14 +50,9 @@ from close_df
 '''
 fluct_df = duckdb.query(qry).df()
 
-
-# In[3]:
-
-
 ## ETL
 
 # creds
-# SERVICE_ACCOUNT_FILE = "read-write-to-gsheet-apis-1-04f16c652b1e.json"
 SERVICE_ACCOUNT_FILE = json.loads(os.getenv("API_KEY"))
 SAMPLE_SPREADSHEET_ID = "1rvnYmn4-6T37GqeUFbRieY2uGYu8qg8ng62YGDjoc8M"
 SCOPES = ["https://www.googleapis.com/auth/spreadsheets"]
@@ -77,10 +65,6 @@ sheet = service.spreadsheets()
 # update 
 clear = sheet.values().clear(spreadsheetId=SAMPLE_SPREADSHEET_ID, range="Furniture - Stocks").execute()
 reqst = sheet.values().update(spreadsheetId=SAMPLE_SPREADSHEET_ID, range="'Furniture - Stocks'!A1", valueInputOption="USER_ENTERED", body={"values": [fluct_df.columns.values.tolist()] + fluct_df.fillna("").values.tolist()}).execute()
-
-
-# In[4]:
-
 
 ## summary
 qry = '''
@@ -98,10 +82,6 @@ order by 1 desc
 limit 1
 '''
 summ_df = duckdb.query(qry).df()
-
-
-# In[7]:
-
 
 ## email
 
@@ -129,10 +109,6 @@ html_msg["To"] = ", ".join(recivr_email)
 with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
    server.login(sender_email, "uhfu cppa sxgh bwpr")
    server.sendmail(sender_email, recivr_email, html_msg.as_string())
-
-
-# In[ ]:
-
 
 
 
