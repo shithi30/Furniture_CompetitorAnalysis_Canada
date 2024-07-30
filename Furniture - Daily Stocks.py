@@ -63,8 +63,8 @@ service = build("sheets", "v4", credentials = creds)
 sheet = service.spreadsheets()
 
 # update 
-clear = sheet.values().clear(spreadsheetId=SAMPLE_SPREADSHEET_ID, range = "Furniture - Stocks").execute()
-reqst = sheet.values().update(spreadsheetId=SAMPLE_SPREADSHEET_ID, range = "'Furniture - Stocks'!A1", valueInputOption = "USER_ENTERED", body = {"values": [fluct_df.columns.values.tolist()] + fluct_df.fillna("").values.tolist()}).execute()
+clear = sheet.values().clear(spreadsheetId = SAMPLE_SPREADSHEET_ID, range = "Furniture - Stocks").execute()
+reqst = sheet.values().update(spreadsheetId = SAMPLE_SPREADSHEET_ID, range = "'Furniture - Stocks'!A1", valueInputOption = "USER_ENTERED", body = {"values": [fluct_df.columns.values.tolist()] + fluct_df.fillna("").values.tolist()}).execute()
 
 ## summary
 qry = '''
