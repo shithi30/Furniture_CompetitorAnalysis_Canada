@@ -59,21 +59,22 @@ fluct_df = duckdb.query(qry).df()
 # In[3]:
 
 
-# ## ETL
+## ETL
 
-# # creds
+# creds
 # SERVICE_ACCOUNT_FILE = "read-write-to-gsheet-apis-1-04f16c652b1e.json"
-# SAMPLE_SPREADSHEET_ID = "1rvnYmn4-6T37GqeUFbRieY2uGYu8qg8ng62YGDjoc8M"
-# SCOPES = ["https://www.googleapis.com/auth/spreadsheets"]
+SERVICE_ACCOUNT_FILE = os.getenv("READ_WRITE_TO_GSHEET_APIS_JSON")
+SAMPLE_SPREADSHEET_ID = "1rvnYmn4-6T37GqeUFbRieY2uGYu8qg8ng62YGDjoc8M"
+SCOPES = ["https://www.googleapis.com/auth/spreadsheets"]
 
-# # APIs
-# creds = service_account.Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE, scopes = SCOPES)
-# service = build("sheets", "v4", credentials = creds)
-# sheet = service.spreadsheets()
+# APIs
+creds = service_account.Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE, scopes = SCOPES)
+service = build("sheets", "v4", credentials = creds)
+sheet = service.spreadsheets()
 
-# # update 
-# clear = sheet.values().clear(spreadsheetId=SAMPLE_SPREADSHEET_ID, range="Furniture - Stocks").execute()
-# reqst = sheet.values().update(spreadsheetId=SAMPLE_SPREADSHEET_ID, range="'Furniture - Stocks'!A1", valueInputOption="USER_ENTERED", body={"values": [fluct_df.columns.values.tolist()] + fluct_df.fillna("").values.tolist()}).execute()
+# update 
+clear = sheet.values().clear(spreadsheetId=SAMPLE_SPREADSHEET_ID, range="Furniture - Stocks").execute()
+reqst = sheet.values().update(spreadsheetId=SAMPLE_SPREADSHEET_ID, range="'Furniture - Stocks'!A1", valueInputOption="USER_ENTERED", body={"values": [fluct_df.columns.values.tolist()] + fluct_df.fillna("").values.tolist()}).execute()
 
 
 # In[4]:
