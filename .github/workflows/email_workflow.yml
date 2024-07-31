@@ -1,4 +1,4 @@
-name: Python Script Schedule Run                          
+name: Email workflow                         
 
 on:
   schedule:
