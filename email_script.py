@@ -3,6 +3,7 @@
 # import
 import smtplib
 from email.mime.text import MIMEText
+import os
 
 # summary
 # oos = ola_df_pres['skus_gone_oos'].tolist()[0]
@@ -23,5 +24,5 @@ html_msg['To'] = ", ".join(recver_email)
 
 # send
 with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
-   server.login(sender_email, "uhfu cppa sxgh bwpr")
+   server.login(sender_email, os.getenv("EMAIL_PASS"))
    if len(oos + ats) > 0: server.sendmail(sender_email, recver_email, html_msg.as_string())
