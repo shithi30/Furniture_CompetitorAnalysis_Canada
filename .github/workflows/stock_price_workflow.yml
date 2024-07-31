@@ -25,6 +25,7 @@ jobs:
     - name: Run the Python script 
       env:
           READ_WRITE_TO_GSHEET_APIS_JSON: ${{ secrets.READ_WRITE_TO_GSHEET_APIS_JSON }}    # API key (.json)
+          EMAIL_PASS: ${{ secrets.EMAIL_PASS }}                                            # password
       run: |
         python "Furniture - Daily Stocks.py"                                               # script
 
