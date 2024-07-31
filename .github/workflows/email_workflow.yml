@@ -2,7 +2,7 @@ name: Email workflow
 
 on:
   schedule:
-    - cron: "*/3 * * * *"                                                                    # cron expr.
+    - cron: "*/5 * * * *"                                                                    # cron expr.
 
 jobs:
   run-script:
