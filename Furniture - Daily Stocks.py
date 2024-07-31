@@ -107,7 +107,7 @@ html_msg["To"] = ", ".join(recivr_email)
 
 # send
 with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
-   server.login(sender_email, "uhfu cppa sxgh bwpr")
+   server.login(sender_email, os.getenv("EMAIL_PASS"))
    server.sendmail(sender_email, recivr_email, html_msg.as_string())
 
 
