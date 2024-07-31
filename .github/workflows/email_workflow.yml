@@ -1,0 +1,24 @@
+name: Python Script Schedule Run                          
+
+on:
+  schedule:
+    - cron: "*/3 * * * *"                                                                    # cron expr.
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out the code
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.11.7"                                                           # Python version
+
+    - name: Run the Python script 
+      env:
+          EMAIL_PASS: ${{ secrets.EMAIL_PASS }}    # pass
+      run: |
+        python "email_script.py"                                               # script
