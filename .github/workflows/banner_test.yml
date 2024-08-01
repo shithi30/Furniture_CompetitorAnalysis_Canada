@@ -22,24 +22,20 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r banner_req.txt                                        
   
-      - name: Set up Chrome
+      - name: Set up ChromeDriver
         run: |
           sudo apt-get update
-          sudo apt-get install -y wget unzip
-          wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-          sudo apt-get install -y ./google-chrome-stable_current_amd64.deb
-  
-      - name: Download ChromeDriver
-        run: |
-          CHROME_VERSION=$(google-chrome --version | grep -oE '[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+')
-          CHROME_DRIVER_VERSION=$(curl -sS https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_VERSION)
-          wget -N https://chromedriver.storage.googleapis.com/$CHROME_DRIVER_VERSION/chromedriver_linux64.zip
-          unzip chromedriver_linux64.zip -d /usr/local/bin/
+          sudo apt-get install -y unzip xvfb libxi6 libgconf-2-4
+          sudo apt-get install -y chromium-browser
+          wget -O /tmp/chromedriver.zip https://chromedriver.storage.googleapis.com/$(curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE)/chromedriver_linux64.zip
+          unzip /tmp/chromedriver.zip -d /tmp/
+          sudo mv /tmp/chromedriver /usr/local/bin/chromedriver
           sudo chmod +x /usr/local/bin/chromedriver
+          export CHROMEDRIVER_PATH="/usr/local/bin/chromedriver"
+          export DISPLAY=:99
+          Xvfb :99 -screen 0 1024x768x24 &
   
       - name: Run Selenium script
-        env:
-          DISPLAY: :99
         run: |
           Xvfb :99 -screen 0 1920x1080x16 &
           python banner_test.py
