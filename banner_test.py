@@ -24,7 +24,7 @@ headers = {"user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KH
 options = webdriver.ChromeOptions()
 options.add_argument("ignore-certificate-errors")
 options.add_argument("disable-dev-shm-usage")
-options.add_argument("ino-sandbox")
+options.add_argument("no-sandbox")
 
 # window
 driver = webdriver.Chrome(options = options)
