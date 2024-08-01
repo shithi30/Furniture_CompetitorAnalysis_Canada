@@ -6,6 +6,7 @@
 
 ## import
 from selenium import webdriver
+import chromedriver_autoinstaller
 from bs4 import BeautifulSoup
 import smtplib
 from email.mime.text import MIMEText
