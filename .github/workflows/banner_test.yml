@@ -23,7 +23,8 @@ jobs:
         pip install -r banner_req.txt
 
     - name: Install xvfb
-      run: sudo apt-get install xvfb
+      run: | 
+        sudo apt-get install xvfb
 
     - name: Run Selenium script
       run: |
