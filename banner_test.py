@@ -10,6 +10,8 @@ from bs4 import BeautifulSoup
 import smtplib
 from email.mime.text import MIMEText
 
+chromedriver_autoinstaller.install() 
+
 
 # In[2]:
 
