@@ -21,9 +21,10 @@ chromedriver_autoinstaller.install()
 
 # pref.
 headers = {"user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36"}
-options = webdriver.ChromeOptions().add_argument("ignore-certificate-errors")
-options = webdriver.ChromeOptions().add_argument("disable-dev-shm-usage")
-options = webdriver.ChromeOptions().add_argument("ino-sandbox")
+options = webdriver.ChromeOptions()
+options.add_argument("ignore-certificate-errors")
+options.add_argument("disable-dev-shm-usage")
+options.add_argument("ino-sandbox")
 
 # window
 driver = webdriver.Chrome(options = options)
