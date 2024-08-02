@@ -2,15 +2,15 @@ import time
 from selenium import webdriver
 import chromedriver_autoinstaller
 
-# from pyvirtualdisplay import Display
-# display = Display(visible=0, size=(800, 800))  
-# display.start()
+from pyvirtualdisplay import Display
+display = Display(visible=0, size=(800, 800))  
+display.start()
 
 chromedriver_autoinstaller.install()  
 
 chrome_options = webdriver.ChromeOptions()    
-# options = ["window-size=1200,1200", "ignore-certificate-errors"]
-options = ["ignore-certificate-errors"]
+options = ["window-size=1200,1200", "ignore-certificate-errors"]
+# options = ["ignore-certificate-errors"]
 for option in options: chrome_options.add_argument(option)
 
 driver = webdriver.Chrome(options = chrome_options)
