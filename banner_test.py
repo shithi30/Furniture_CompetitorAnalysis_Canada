@@ -9,8 +9,8 @@ display.start()
 chromedriver_autoinstaller.install()  
 
 chrome_options = webdriver.ChromeOptions()    
-options = ["window-size=1200,1200", "ignore-certificate-errors"]
-# options = ["ignore-certificate-errors"]
+# options = ["window-size=1200,1200", "ignore-certificate-errors"]
+options = ["ignore-certificate-errors"]
 for option in options: chrome_options.add_argument(option)
 
 driver = webdriver.Chrome(options = chrome_options)
