@@ -1,6 +1,6 @@
 from selenium import webdriver
-# from selenium.webdriver.chrome.options import Options
-# from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
 import chromedriver_autoinstaller
 import time
 
@@ -12,16 +12,16 @@ chromedriver_autoinstaller.install()  # Check if the current version of chromedr
                                       # and if it doesn't exist, download it automatically,
                                       # then add chromedriver to path
 
-chrome_options = webdriver.ChromeOptions()    
+chrome_options = webdriver.ChromeOptions()     
 options = [
    "--window-size=1200,1200",
     "--ignore-certificate-errors"
 ]
-
 for option in options: chrome_options.add_argument(option)
 
     
 driver = webdriver.Chrome(options = chrome_options)
+
 driver.get('http://github.com')
 time.sleep(5)
 driver.close()
