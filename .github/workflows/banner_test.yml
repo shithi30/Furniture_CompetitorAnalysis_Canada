@@ -1,4 +1,4 @@
-name: Python Script Manual Run
+name: Selenium Script Manual Run
 on:
   workflow_dispatch:
     
