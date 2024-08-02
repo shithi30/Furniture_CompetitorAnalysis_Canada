@@ -2,9 +2,9 @@ from selenium import webdriver
 import chromedriver_autoinstaller
 import time
 
-# from pyvirtualdisplay import Display
-# display = Display(visible=0, size=(800, 800))  
-# display.start()
+from pyvirtualdisplay import Display
+display = Display(visible=0, size=(800, 800))  
+display.start()
 
 chromedriver_autoinstaller.install()  # Check if the current version of chromedriver exists
                                       # and if it doesn't exist, download it automatically,
@@ -12,7 +12,7 @@ chromedriver_autoinstaller.install()  # Check if the current version of chromedr
 
 chrome_options = webdriver.ChromeOptions()     
 options = [
-   # "--window-size=1200,1200",
+    "--window-size=1200,1200",
     "--ignore-certificate-errors"
 ]
 for option in options: chrome_options.add_argument(option)
