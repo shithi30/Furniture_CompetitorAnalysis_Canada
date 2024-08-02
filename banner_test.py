@@ -1,5 +1,5 @@
 # ref.
-# - https://github.com/MarketingPipeline/Python-Selenium-Action/tree/main
+# - https://github.com/MarketingPipeline/Python-Selenium-Action
 # - https://github.com/ponty/PyVirtualDisplay
 
 # import
