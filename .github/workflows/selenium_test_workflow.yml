@@ -16,16 +16,16 @@ jobs:
       with:
         python-version: '3.11.7'
         
-    - name: Removing previous chrome instances on runner 
+    - name: Removing previous Chrome
       run: sudo apt purge google-chrome-stable  
   
-    - name: Installing all necessary packages
+    - name: Installing packages
       run: pip install chromedriver-autoinstaller selenium beautifulsoup4 pyvirtualdisplay
       
-    - name: Install xvfb
+    - name: Installing xvfb
       run: sudo apt-get install xvfb
 
-    - name: Running the Python script
+    - name: Running Python script
       run: python banner_test.py
         
       
