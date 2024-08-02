@@ -1,5 +1,4 @@
-name: Selenium Test Run
-
+name: Python Script Manual Run
 on:
   workflow_dispatch:
     
