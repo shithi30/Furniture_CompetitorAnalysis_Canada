@@ -1,3 +1,7 @@
+# ref.
+# - https://github.com/MarketingPipeline/Python-Selenium-Action/tree/main
+# - https://github.com/ponty/PyVirtualDisplay
+
 # import
 from pyvirtualdisplay import Display
 import chromedriver_autoinstaller
