@@ -25,7 +25,4 @@ jobs:
           READ_WRITE_TO_GSHEET_APIS_JSON: ${{ secrets.READ_WRITE_TO_GSHEET_APIS_JSON }}    
           EMAIL_PASS: ${{ secrets.EMAIL_PASS }}                                            
       run: python "Furniture - Daily Stocks.py"   
-
-
       
-
