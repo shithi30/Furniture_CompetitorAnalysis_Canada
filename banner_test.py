@@ -1,6 +1,6 @@
 import time
 from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
+# from selenium.webdriver.chrome.options import Options
 import chromedriver_autoinstaller
 
 from pyvirtualdisplay import Display
