@@ -1,6 +1,6 @@
-import time
 from selenium import webdriver
 import chromedriver_autoinstaller
+import time
 
 from pyvirtualdisplay import Display
 display = Display(visible=0, size=(800, 800))  
