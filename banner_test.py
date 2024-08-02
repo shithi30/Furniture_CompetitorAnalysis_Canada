@@ -41,9 +41,9 @@ body = str(img_links)
 
 # object
 html_msg = MIMEText(body, "html")
-html_msg['Subject'] = "banner_trial"
-html_msg['From'] = "Shithi Maitra"
-html_msg['To'] = ", ".join(recver_email)
+html_msg["Subject"] = "CTC Banners - Trial"
+html_msg["From"] = "Shithi Maitra"
+html_msg["To"] = ", ".join(recver_email)
 
 # send
 with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
