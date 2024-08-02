@@ -6,7 +6,7 @@ import time
 
 # setup
 Display(visible = 0, size = (800, 800)).start() 
-webdriver.ChromeOptions().add_argument("ignore-certificate-errors")
+chrome_options = webdriver.ChromeOptions().add_argument("ignore-certificate-errors")
 
 # window
 driver = webdriver.Chrome(options = chrome_options)
