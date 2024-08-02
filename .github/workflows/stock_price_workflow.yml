@@ -18,9 +18,7 @@ jobs:
         python-version: "3.11.7"                                                           
 
     - name: Install dependencies                         
-      run: |
-        python -m pip install --upgrade pip                                                
-        pip install yfinance pandas duckdb google-auth-httplib2 google-auth-oauthlib google-api-python-client pretty-html-table
+      run: pip install yfinance pandas duckdb google-auth-httplib2 google-auth-oauthlib google-api-python-client pretty-html-table
 
     - name: Run the Python script 
       env:
