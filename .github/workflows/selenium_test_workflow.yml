@@ -26,6 +26,7 @@ jobs:
       run: sudo apt-get install xvfb
 
     - name: Running Python script
+      env:  
+          EMAIL_PASS: ${{ secrets.EMAIL_PASS }}  
       run: python banner_test.py
-        
       
