@@ -7,6 +7,7 @@ from pyvirtualdisplay import Display
 import chromedriver_autoinstaller
 from selenium import webdriver
 from bs4 import BeautifulSoup
+import os
 import smtplib
 from email.mime.text import MIMEText
 
@@ -46,7 +47,7 @@ html_msg['To'] = ", ".join(recver_email)
 
 # send
 with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
-   server.login(sender_email, "uhfu cppa sxgh bwpr")
+   server.login(sender_email, os.getenv("EMAIL_PASS"))
    server.sendmail(sender_email, recver_email, html_msg.as_string())
     
 # end
