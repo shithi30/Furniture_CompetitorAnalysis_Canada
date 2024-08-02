@@ -24,8 +24,6 @@ driver.close()
 
 
 
-
-
 # ## import
 # from selenium import webdriver
 # import chromedriver_autoinstaller
