@@ -28,5 +28,5 @@ jobs:
     - name: Running Python script
       env:  
           EMAIL_PASS: ${{ secrets.EMAIL_PASS }}  
-      run: python banner_test.py
+      run: python "CTC Banners - Test.py"
       
