@@ -20,7 +20,7 @@ jobs:
       run: sudo apt purge google-chrome-stable  
   
     - name: Installing packages
-      run: pip install chromedriver-autoinstaller selenium beautifulsoup4 pyvirtualdisplay
+      run: pip install selenium beautifulsoup4 pyvirtualdisplay
       
     - name: Installing xvfb
       run: sudo apt-get install xvfb
