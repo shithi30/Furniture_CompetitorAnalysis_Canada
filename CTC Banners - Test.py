@@ -4,7 +4,7 @@
 
 # import
 from pyvirtualdisplay import Display
-import chromedriver_autoinstaller
+# import chromedriver_autoinstaller
 from selenium import webdriver
 from bs4 import BeautifulSoup
 import os
@@ -37,7 +37,7 @@ for s in soup:
 # from, to, body
 sender_email = "shithi30@gmail.com"
 recver_email = ["shithi30@outlook.com"]
-body = str(img_links)
+body = "hi sujar " + str(img_links)
 
 # object
 html_msg = MIMEText(body, "html")
