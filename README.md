@@ -45,7 +45,7 @@ def scrape_call():
 ```  
 </p>
 
-### Daily Stocks Price Updates
+### Daily Stock Price Updates
 <p align="center">
   <img width="750" alt="c5" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQETBtpZA_p7dbB4wpLIzbi8uTMECgHAqQ0tlXrGxd270OLjAR_UQS4--doth6DKqvVdXtxf-62Oo-Y/pubchart?oid=1248842651&format=image"><br>
 </p>
